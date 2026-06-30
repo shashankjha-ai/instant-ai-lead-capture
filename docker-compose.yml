@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  instant-capture:
+    build: .
+    container_name: realates-instant-capture
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=sk-mock-key-for-local-testing
+      - OPENAI_MODEL=gpt-4o
+      - PORT=8000
+      - LOG_LEVEL=INFO
+      - RESPONSE_TIMEOUT_SECONDS=2.0
+    restart: unless-stopped
